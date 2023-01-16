@@ -1,13 +1,12 @@
-import { bussinesCard } from "../constants"
-
 import { Card } from "./Card"
 
-export const CardList = ({ icon }) => {
+export const CardList = ({ icon, cardsData, pointerEvents = true, oneColumn = false }) => {
+
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-[1700px] gap-7 px-3 sm:px-10 py-5 my-0 mx-auto">
+        <div className={`grid ${ oneColumn ? 'grid-cols-1' : 'grid-cols-1 ss:grid-cols-2 lg:grid-cols-3' } justify-center max-w-[1700px] gap-7 px-3 sm:px-10 py-5 my-0 mx-auto`}>
             {
-                bussinesCard.map( card => (
-                    <Card key={card.id} data={ card } icon={icon}/>
+                cardsData.map(card => (
+                    <Card key={card.id} data={card} icon={icon} pointerEvents={pointerEvents} />
                 ))
             }
         </div>
