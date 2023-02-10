@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .gallery__items::-webkit-scrollbar,
-.menu__items::-webkit-scrollbar {
-    display: none;
-} */
 
-*::-webkit-scrollbar {
-    display: none;
+.gallery__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+.active__link {
+    border-bottom: 3px solid #61C90F;
+    color: #61C90F;
 }

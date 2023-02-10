@@ -10,7 +10,7 @@ export const Header = ({ itemLeft, title = 'Yogo App', subtitle = "¡Yogo lo mue
 
             {
                 itemLeft && (
-                    <div 
+                    <div
                         className="cursor-pointer"
                         onClick={() => navigate(-1)}
                     >

@@ -10,6 +10,7 @@ export const BusinessProvider = ({ children }) => {
     const [businessData, setBusinessData] = useState({})
     const [businessProductsList, setBusinessProductsList] = useState([])
     const [businessCategories, setBusinessCategories] = useState([])
+    const [searchResult, setSearchResult] = useState([])
 
     const getBusiness = async () => {
         try {
@@ -20,7 +21,7 @@ export const BusinessProvider = ({ children }) => {
         }
     }
 
-    const getBussinessByCategory = async (category) => {
+    const getBussinessByCategory = async(category) => {
         try {
             const { data } = await clienteAxios(`/CITYS/Sincelejo/MARKETS.json?orderBy="categoria_global"&equalTo="${category}"`)
             setBusinessByCategory(Object.values(data));
@@ -29,9 +30,9 @@ export const BusinessProvider = ({ children }) => {
         }
     }
 
-    const getOneBusiness = async (business) => {
+    const getOneBusiness = async (market) => {
         try {
-            const { data: dataBusiness } = await clienteAxios(`/CITYS/Sincelejo/MARKETS.json?orderBy="nombre"&equalTo="${business}"`)
+            const { data: dataBusiness } = await clienteAxios(`/CITYS/Sincelejo/MARKETS.json?orderBy="nombre"&equalTo="${market}"`)
             const [businessInfo] = Object.values(dataBusiness)
             setBusinessData(businessInfo)
 
@@ -66,9 +67,21 @@ export const BusinessProvider = ({ children }) => {
         }
     }
 
+    const searchSites = ( searchTerm, category ) => {
+        if(category){
+            setSearchResult(business.filter( b => b.nombre.toLowerCase().includes(searchTerm) && b.categoria_global === category ))
+        } else {
+            setSearchResult(business.filter( b => b.nombre.toLowerCase().includes(searchTerm) ))
+        }
+    }
+
+    const loadContents = async() => {
+        await getBusiness()
+        await getGlobalCategories()
+    }
+
     useEffect(() => {
-        getBusiness()
-        getGlobalCategories()
+        loadContents()
     }, [])
 
     return (
@@ -77,13 +90,16 @@ export const BusinessProvider = ({ children }) => {
             getBusiness,
             businessByCategory,
             getBussinessByCategory,
+            setBusinessByCategory,
             globalCategories,
             businessData,
             setBusinessData,
             businessProductsList,
             getOneBusiness,
             businessCategories,
-            getBusinessCategories
+            getBusinessCategories,
+            searchSites,
+            searchResult
         }}>
             {children}
         </BusinessContext.Provider>

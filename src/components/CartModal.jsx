@@ -38,12 +38,6 @@ export const CartModal = () => {
         <ModalLayout>
             <div className="title flex justify-between w-full px-10 my-5">
                 <h2 className="text-xl font-semibold font-inter">{ product && product.nombre }</h2>
-                <p 
-                    className="text-2xl font-bold font-inter text-red cursor-pointer"
-                    onClick={openAndCloseModal}
-                >
-                    X
-                </p>
             </div>
 
             <div className="w-full px-10 mb-5">

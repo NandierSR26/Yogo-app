@@ -11,20 +11,10 @@ export const ChooseProducts = () => {
     let cartPrice = 0;
     let productsAmount = 0;
 
-    const { cart, cartSpecs } = useContext(CartContext);
+    const { cartSpecs } = useContext(CartContext);
     const { businessCategories, getBusinessCategories, businessProductsList } = useContext(BusinessContext)
     const { site } = useParams();
     const navigate = useNavigate()
-
-    // const calcCartPrice = () => {
-    //     cart.forEach(({ totalPrice, amount }) => {
-    //         cartPrice += totalPrice
-    //         productsAmount += amount
-    //     })
-    // }
-    // useEffect(() => {
-    //     calcCartPrice()
-    // }, [cart])
     
     useEffect(() => {
         getBusinessCategories(site)
@@ -33,7 +23,7 @@ export const ChooseProducts = () => {
     return (
         <main className="relative">
             <div className="flex flex-col justify-start items-start h-[100vh] w-full">
-                <Header title="Menu" itemLeft itemRight={'next'} />
+                <Header title="Menu" itemLeft />
                 {
                     (businessCategories.length > 0) && (
                         <Categories items={businessCategories} />

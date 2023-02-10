@@ -20,7 +20,7 @@ export const Card = ({ data, icon = false, pointerEvents = true }) => {
 
     return (
         <div
-            className={`flex h-[120px] sm:h-[150px] bg-gray rounded-md overflow-hidden shadow-xl ${pointerEvents ? 'cursor-pointer hover:scale-105 transition-transform' : 'pointer-events-none'}`}
+            className={`flex h-[120px] sm:h-[150px] bg-[#f4f4f4] rounded-md overflow-hidden shadow-md ${pointerEvents ? 'cursor-pointer hover:scale-[1.05] transition-transform' : 'pointer-events-none'}`}
             onClick={pointerEvents ? navigateTo : null}
         >
             <div className="w-[100px] sm:w-[130px] flex-shrink-0">
