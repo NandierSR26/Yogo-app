@@ -27,7 +27,7 @@ export const Card = ({ data, icon = false, pointerEvents = true }) => {
                 {
                     (data.imagen === 'perfil_default.jpg' || data.imagen === 'null.png')
                         ? (<img src="/img/no-image.jpeg" alt="bussiness" className="w-[100%] min-h-[100%]" />)
-                        : (<img src={data.imagen || data.product.imagen} alt="bussiness" className="w-[100%] min-h-[100%]" />)
+                        : (<img src={data.imagen} alt="bussiness" className="w-[100%] min-h-[100%]" />)
                 }
             </div>
 
