@@ -10,7 +10,7 @@ export const Card = ({ data, icon = false, pointerEvents = true }) => {
     const navigate = useNavigate()
 
     const navigateTo = () => {
-        navigate(`/sites/${data.nombre}`)
+        navigate(`/sites/${data.user}`)
     }
 
     const openModal = () => {

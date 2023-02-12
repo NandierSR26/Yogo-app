@@ -108,7 +108,7 @@ export const BussinessPage = () => {
                                             <div
                                                 key={url}
                                                 onClick={() => openImage(url)}
-                                                className="cursor-pointer rounded-md overflow-hidden"
+                                                className="cursor-pointer rounded-md overflow-hidden max-w-[200px]"
                                             >
                                                 <img src={url} alt="img" className="w-full rounded-md h-full hover:scale-110 transition-all" />
                                             </div>

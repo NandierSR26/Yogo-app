@@ -32,7 +32,7 @@ export const BusinessProvider = ({ children }) => {
 
     const getOneBusiness = async (market) => {
         try {
-            const { data: dataBusiness } = await clienteAxios(`/CITYS/Sincelejo/MARKETS.json?orderBy="nombre"&equalTo="${market}"`)
+            const { data: dataBusiness } = await clienteAxios(`/CITYS/Sincelejo/MARKETS.json?orderBy="user"&equalTo="${market}"`)
             const [businessInfo] = Object.values(dataBusiness)
             setBusinessData(businessInfo)
 
