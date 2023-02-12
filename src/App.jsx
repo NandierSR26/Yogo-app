@@ -1,12 +1,9 @@
-import { BussinessDirectory } from "./pages/BussinessDirectory"
-import { BussinessPage } from "./pages/BussinessPage"
-import { ChooseProducts } from "./pages/ChooseProducts"
-import { RequestOrder } from "./pages/RequestOrder"
+import { BrowserRouter, HashRouter } from "react-router-dom"
 import { AppRouter } from "./routes/AppRouter"
 
 function App() {
   return (
-    <AppRouter />
+      <AppRouter />
   )
 }
 

@@ -1,8 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { CardList } from '../components/CardList'
-import { Categories } from '../components/Categories'
 import { Header } from '../components/Header'
-import { clienteAxios } from '../config/axios'
 import { CartContext } from '../context/cart/CartContext'
 
 export const RequestOrder = () => {
